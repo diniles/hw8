@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.gb.hw8.User;
+import ru.gb.hw8.aop.TrackUserAction;
 import ru.gb.hw8.service.UserService;
 
 @Controller
@@ -22,6 +23,7 @@ public class RegisterController {
 
 
     @PostMapping("/register")
+    @TrackUserAction
     public String registerUser(@ModelAttribute("User") User user, Model model) {
         userService.saveUser(user);
         return ("redirect:/login");

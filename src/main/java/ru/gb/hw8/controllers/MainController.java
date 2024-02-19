@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import ru.gb.hw8.aop.TrackUserAction;
 import ru.gb.hw8.service.UserService;
 
 @Controller
@@ -19,6 +20,7 @@ public class MainController {
     }
 
     @GetMapping("/login")
+    @TrackUserAction
     public String login() {
         return "login";
     }
